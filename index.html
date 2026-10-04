@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>מפת פרויקטים UX - קורס טקטיקה</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #f8fafc;
+      --card-bg: #ffffff;
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --badge-bg: #eff6ff;
+      --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+    }
+
+    [data-theme="dark"] {
+      --bg-color: #0f172a;
+      --card-bg: #1e293b;
+      --primary: #3b82f6;
+      --primary-hover: #60a5fa;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --border: #334155;
+      --badge-bg: #1e3a8a;
+      --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Rubik', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 3rem 1.5rem;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .theme-toggle-btn {
+      position: absolute;
+      top: 1.5rem;
+      left: 1.5rem;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      color: var(--text-main);
+      padding: 0.6rem 1rem;
+      border-radius: 9999px;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 500;
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+      max-width: 600px;
+    }
+
+    header h1 {
+      font-size: 2.25rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 0.75rem;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      width: 100%;
+      max-width: 1000px;
+    }
+
+    .project-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.75rem;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease, border-color 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .card-header {
+      margin-bottom: 1.5rem;
+    }
+
+    .badge {
+      display: inline-block;
+      background-color: var(--badge-bg);
+      color: var(--primary);
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      margin-bottom: 1rem;
+    }
+
+    .card-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 0.5rem;
+    }
+
+    .card-subtitle {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      word-break: break-all;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 0.75rem 1rem;
+      background-color: var(--primary);
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 500;
+      border-radius: 10px;
+      transition: background-color 0.2s ease;
+    }
+
+    .btn:hover {
+      background-color: var(--primary-hover);
+    }
+
+    footer {
+      margin-top: 4rem;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <button class="theme-toggle-btn" id="themeToggle" aria-label="החלף מצב תאורה">
+    <span id="themeIcon">🌙</span>
+    <span id="themeText">מצב כהה</span>
+  </button>
+
+  <header>
+    <h1>מפת פרויקטים UX</h1>
+    <p>קורס טקטיקה | תוצרי ואפליקציות הסטודנטים</p>
+  </header>
+
+  <main class="projects-grid">
+    
+    <!-- Project 1 -->
+    <article class="project-card">
+      <div class="card-header">
+        <span class="badge">פרויקט UX</span>
+        <h2 class="card-title">שירות המים של נועה</h2>
+        <p class="card-subtitle">danielaroll.github.io</p>
+      </div>
+      <a href="https://danielaroll.github.io/noa-water-service/" target="_blank" class="btn">
+        צפייה בפרויקט &larr;
+      </a>
+    </article>
+
+    <!-- Project 2 -->
+    <article class="project-card">
+      <div class="card-header">
+        <span class="badge">פרויקט UX</span>
+        <h2 class="card-title">תרגול UX - דוד קורנבליט</h2>
+        <p class="card-subtitle">davidkorenblit.github.io</p>
+      </div>
+      <a href="https://davidkorenblit.github.io/ux-practice/" target="_blank" class="btn">
+        צפייה בפרויקט &larr;
+      </a>
+    </article>
+
+    <!-- Project 3 -->
+    <article class="project-card">
+      <div class="card-header">
+        <span class="badge">פרויקט UX</span>
+        <h2 class="card-title">אפליקציית מעבר דירה - נועה</h2>
+        <p class="card-subtitle">roitmanaz.github.io</p>
+      </div>
+      <a href="https://roitmanaz.github.io/noa-moving-app-ux-task/index.html" target="_blank" class="btn">
+        צפייה בפרויקט &larr;
+      </a>
+    </article>
+
+    <!-- Project 4 -->
+    <article class="project-card">
+      <div class="card-header">
+        <span class="badge">פרויקט UX</span>
+        <h2 class="card-title">פרויקט נוסף</h2>
+        <p class="card-subtitle">brd138283-hue.github.io</p>
+      </div>
+      <a href="https://brd138283-hue.github.io" target="_blank" class="btn">
+        צפייה בפרויקט &larr;
+      </a>
+    </article>
+
+  </main>
+
+  <footer>
+    <p>© קורס טקטיקה - כל הזכויות שמורות</p>
+  </footer>
+
+  <script>
+    const themeToggleBtn = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const themeText = document.getElementById('themeText');
+
+    // Check system preference or saved theme
+    const savedTheme = localStorage.getItem('theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+      setTheme('dark');
+    } else {
+      setTheme('light');
+    }
+
+    themeToggleBtn.addEventListener('click', () => {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      setTheme(currentTheme === 'dark' ? 'light' : 'dark');
+    });
+
+    function setTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+      if (theme === 'dark') {
+        themeIcon.textContent = '☀️';
+        themeText.textContent = 'מצב בהיר';
+      } else {
+        themeIcon.textContent = '🌙';
+        themeText.textContent = 'מצב כהה';
+      }
+    }
+  </script>
+
+</body>
+</html>
