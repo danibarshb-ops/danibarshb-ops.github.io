@@ -1,1 +1,0 @@
-# danibarshb-ops.github.io
